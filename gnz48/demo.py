@@ -5,12 +5,25 @@ import urllib.request
 
 
 def main():
-    url = "http://www.baidu.com"
+    url = "http://www.gnz48.com"
+    gnzRequest = urllib.request.Request(url)
+    connection = urllib.request.urlopen(gnzRequest)
+    # connection.read()
 
-    # 新的遍历方法?
-    with urllib.request.urlopen(url) as f:
-        print(f.read(300))
+    print(connection.geturl())
+    print(connection.info())
+    print(connection.getcode())
+    print(connection.msg)
+'''
+    data = dict()
+    data["url"] = connection.geturl()
+    data["info"] = connection.info()
+    data["code"] = connection.getcode()
+    # data["reason"] = connection.msg
 
+    for k, v in data.items():
+        print(k + ":" + v)
+'''
 
 
 if __name__ == '__main__':
